@@ -28,3 +28,8 @@ console.log(book.title);
 book.title = "My New Author";
 
 console.log(book.title);
+
+var changeTitle = 'title'; // Change Title of Book
+book[changeTitle] = 'Another Title G';
+console.log(book.title);
+
