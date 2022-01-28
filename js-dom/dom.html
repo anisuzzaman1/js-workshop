@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <h1> Welcome to blog website</h1>
+        <h1> Document Object Model (DOM)</h1>
     </header>
     <main>
         <section>
@@ -26,7 +26,7 @@
                     impedit optio, voluptate voluptates rerum mollitia? Excepturi, quibusdam.</p>
             </article>
             <article>
-                <h3>My Awoesome blog - 2</h3>
+                <h3 id="3rd-h3">My Awoesome blog - 2</h3>
                 <p>Praesentium dolor laboriosam perspiciatis adipisci animi, illo hic voluptates, sed architecto
                     blanditiis velit, eos repellat fugiat accusantium exercitationem corrupti voluptate accusamus minus
                     molestiae harum earum. Nemo nesciunt ea id atque, ab reiciendis! Nihil, saepe? Nam ab commodi odio
@@ -51,7 +51,14 @@
         </section>
     </main>
     <script>
-        console.log(document);
+        // const blogDetails = document.getElementsByTagName('h3');
+        // for (const h1 of blogDetails) {
+        //     console.log(h1.innerHTML);
+        // }
+
+        const title3 = document.getElementById('3rd-h3');
+        title3.style.color = 'green';
+
     </script>
 </body>
 
