@@ -20,9 +20,9 @@ const displaySearchResult = meals => {
     // Clear Prv Data
     searchResult.innerHTML = '';
 
-    if (meal.length == 0) {
-        console.log('No Result');
-    }
+    // if (meal.length == 0) {
+    //     console.log('No Result');
+    // }
     meals.forEach(meal => {
         // console.log(meal);
         const div = document.createElement('div');
@@ -40,20 +40,29 @@ const displaySearchResult = meals => {
     });
 }
 
-const loadMealDetaiil = mealId => {
+const loadMealDetaiil = async mealId => {
     // console.log(mealId);
     // https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
+
+    const res = await fetch(url);
+    const data = await res.json();
+    displayMealDetails(data.meals[0]);
+
     // console.log(url);
-    fetch(url)
-        .then(res => res.json())
-        .then(data => displayMealDetails(data.meals[0]));
+    // fetch(url)
+    //     .then(res => res.json())
+    //     .then(data => displayMealDetails(data.meals[0]));
 }
 
 const displayMealDetails = meal => {
-    console.log(meal);
+    // console.log(meal);
 
     const mealDetails = document.getElementById('meal-details');
+
+    // Clear Contain
+    mealDetails.textContent = '';
+
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML = `
