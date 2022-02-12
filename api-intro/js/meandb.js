@@ -1,16 +1,24 @@
+document.getElementById('error-message').style.display = 'none';
+
 const searchFood = () => {
     const searchField = document.getElementById('foodName');
     const searchText = searchField.value;
 
     // Clear Data
     searchField.value = '';
+    document.getElementById('error-message').style.display = 'none';
 
     // Load Data
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
     console.log(url);
     fetch(url)
         .then(res => res.json())
-        .then(data => displaySearchResult(data.meals));
+        .then(data => displaySearchResult(data.meals))
+        .catch(error => displayError(error));
+}
+
+const displayError = error => {
+    document.getElementById('error-message').style.display = 'block';
 }
 
 const displaySearchResult = meals => {
@@ -20,9 +28,9 @@ const displaySearchResult = meals => {
     // Clear Prv Data
     searchResult.innerHTML = '';
 
-    if (meal.length == 0) {
-        console.log('No Result');
-    }
+    // if (meal.length == 0) {
+    //     console.log('No Result');
+    // }
     meals.forEach(meal => {
         // console.log(meal);
         const div = document.createElement('div');
