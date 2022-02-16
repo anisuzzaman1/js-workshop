@@ -7,6 +7,7 @@ const loadCountries = () => {
 const displayCountry = (countries) => {
     //console.log(data);
     const divs = document.getElementById('countries');
+    //const { name, capital, timezones } = countries // Destructuring
     countries.forEach(country => {
         //console.log(country);
         const div = document.createElement('div');
